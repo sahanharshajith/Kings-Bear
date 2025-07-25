@@ -47,7 +47,7 @@ const MainBanner = () => {
   };
 
   return (
-    <div className="relative overflow-hidden h-[400px] md:h-[450px] w-full max-w-[100vw] mx-auto">
+    <div className="relative overflow-hidden h-[400px] md:h-[450px] w-full max-w-[100vw]">
       {/* Slides */}
       {slides.map((slide, index) => (
         <div key={index}>
@@ -55,7 +55,7 @@ const MainBanner = () => {
           <img
             src={slide.desktop}
             alt={`banner-desktop-${index}`}
-            className={`w-full h-full object-cover hidden md:block absolute top-0 left-0 transition-opacity duration-1000 ${
+            className={`w-full h-full object-cover hidden md:block absolute top-0 left-0 transition-opacity duration-1000 rounded-lg ${
               index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
             style={{ width: '100%', objectPosition: 'center' }}
@@ -64,7 +64,7 @@ const MainBanner = () => {
           <img
             src={slide.mobile}
             alt={`banner-mobile-${index}`}
-            className={`w-full h-full object-cover md:hidden absolute top-0 left-0 transition-opacity duration-1000 ${
+            className={`w-full h-full object-cover md:hidden absolute top-0 left-0 transition-opacity duration-1000 rounded-lg ${
               index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
             style={{ width: '100%', objectPosition: 'center' }}
@@ -73,7 +73,7 @@ const MainBanner = () => {
       ))}
 
       {/* Dark Overlay for text readability - adjusted to not cover full width */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent rounded-lg" />
 
       {/* Dynamic Text (changes per slide) - adjusted padding */}
       <div className="absolute inset-0 flex flex-col justify-end md:justify-center items-center md:items-start pb-20 md:pb-0 px-4 md:px-8 lg:px-12">
