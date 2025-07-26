@@ -84,7 +84,7 @@ const MainBanner = () => {
         <div className="flex items-center mt-6 font-medium">
           <Link
             to="/products"
-            className="group flex items-center gap-2 px-7 md:px-9 py-3 bg-primary text-white cursor-pointer rounded hover:bg-primary-dull transition"
+            className="cursor-pointer px-6 py-2 bg-primary hover:bg-primary/90 transition text-white rounded font-medium shadow-lg hover:shadow-primary/30"
           >
             Shop Now
             <img

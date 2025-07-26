@@ -8,6 +8,14 @@ import Limited_Edition_Bears from "./Limited Edition Bears.png";
 import Miniature_Teddy_Bears from "./Miniature Teddy Bears.png";
 import Retired_Teddy_Bears from "./Retired Teddy Bears.png";
 import Birthday_Surprise_Packs from "./Surprise Gifts.png";
+import Charlie_Bears from "./Charlie Bears.png";
+import cart_icon from "./cart_icon.svg";
+import star_icon from "./star_icon.svg";
+import star_dull_icon from "./star_dull_icon.svg";
+import Charlie_Bears_Anniversary_Savoury_Pudding_2025_Panda_Teddy from "./Charlie Bears Anniversary Savoury Pudding 2025 Panda Teddy.png";
+import Blossom_Bliss_Gerbera_Bunch from "./Blossom Bliss Gerbera Bunch.png";
+import Charlie_Bears_Walrus_2023_Plush_Teddy_Bear from "./Charlie Bears Walrus 2023 Plush Teddy Bear.png";
+import Heartfelt_Chocolate_Treats_Love_Box from "./Heartfelt Chocolate Treats Love Box.png";
 
 export const assets = {
   Baby_Safe_Teddy_Bears,
@@ -20,6 +28,14 @@ export const assets = {
   Miniature_Teddy_Bears,
   Retired_Teddy_Bears,
   Birthday_Surprise_Packs,
+  Charlie_Bears,
+  cart_icon,
+  star_icon,
+  star_dull_icon,
+  Charlie_Bears_Anniversary_Savoury_Pudding_2025_Panda_Teddy,
+  Blossom_Bliss_Gerbera_Bunch,
+  Charlie_Bears_Walrus_2023_Plush_Teddy_Bear,
+  Heartfelt_Chocolate_Treats_Love_Box
 };
 
 export const categories = [
@@ -84,6 +100,90 @@ export const categories = [
     bgColor: "#FFD6E0"
   }
 ];
+
+export const dummyProducts = [
+  {
+    _id: "gd46g23h",
+    name: "Charlie Bears Cuddle Cub Beast of Bodmin",
+    category: "Cute Teddy Bears",
+    price: 125,
+    offerPrice: 100,
+    image: [Charlie_Bears],
+    description: [
+      "Super soft plush fur",
+      "Hand-finished details",
+      "Perfect for cuddling and gifting",
+    ],
+    createdAt: "2025-03-25T07:17:46.018Z",
+    updatedAt: "2025-03-25T07:18:13.103Z",
+    inStock: true,
+  },
+  {
+    _id: "gd47g34h",
+    name: "Charlie Bears Anniversary Savoury Pudding 2025 Panda Teddy",
+    category: "Cute Teddy Bears",
+    price: 150,
+    offerPrice: 135,
+    image: [Charlie_Bears_Anniversary_Savoury_Pudding_2025_Panda_Teddy],
+    description: [
+      "Limited edition collectible bear",
+      "Beautifully crafted with premium materials",
+      "Ideal for collectors and special occasions",
+    ],
+    createdAt: "2025-03-25T07:17:46.018Z",
+    updatedAt: "2025-03-25T07:18:13.103Z",
+    inStock: true,
+  },
+  {
+    _id: "gd48g45h",
+    name: "Blossom Bliss Gerbera Bunch",
+    category: "Flowers",
+    price: 120,
+    offerPrice: 115,
+    image: [Blossom_Bliss_Gerbera_Bunch],
+    description: [
+      "Vibrant and fresh gerbera flowers",
+      "Perfect for brightening up any space",
+      "Handpicked and beautifully arranged",
+    ],
+    createdAt: "2025-03-25T07:17:46.018Z",
+    updatedAt: "2025-03-25T07:18:13.103Z",
+    inStock: true,
+  },
+  {
+    _id: "gd49g56h",
+    name: "Charlie Bears Walrus 2023 Plush Teddy Bear",
+    category: "Limited Edition Bears",
+    price: 300,
+    offerPrice: 280,
+    image: [Charlie_Bears_Walrus_2023_Plush_Teddy_Bear],
+    description: [
+      "Limited edition collectible bear",
+      "Beautifully crafted with premium materials",
+      "Ideal for collectors and special occasions",
+    ],
+    createdAt: "2025-03-25T07:17:46.018Z",
+    updatedAt: "2025-03-25T07:18:13.103Z",
+    inStock: true,
+  },
+  {
+    _id: "gd50g67h",
+    name: "Heartfelt Chocolate Treats Love Box",
+    category: "Chocolates & Treats",
+    price: 50,
+    offerPrice: 45,
+    image: [Heartfelt_Chocolate_Treats_Love_Box],
+    description: [
+      "Assorted chocolates in a beautiful gift box",
+      "Perfect for gifting on special occasions",
+      "Made with high-quality ingredients",
+    ],
+    createdAt: "2025-03-25T07:17:46.018Z",
+    updatedAt: "2025-03-25T07:18:13.103Z",
+    inStock: true,
+  }
+
+]
 
 /*export const footerLinks = [
   {
