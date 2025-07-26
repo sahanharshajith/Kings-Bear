@@ -156,10 +156,10 @@ const Categories = () => {
                             </div>
 
                             {/* Info */}
-                            <h3 className="text-lg font-bold text-gray-800 group-hover:text-white transition-colors duration-300">
+                            <h3 className="text-lg font-bold text-gray-800 group-hover:text-primary transition-colors duration-300">
                                 {category.name}
                             </h3>
-                            <p className="text-sm text-gray-600 group-hover:text-white/80 mt-1 transition-colors duration-300">
+                            <p className="inline-block px-2 py-1 bg-primary/10 text-primary text-xs rounded-full mb-2 duration-300">
                                 Explore Collection
                             </p>
                         </div>
