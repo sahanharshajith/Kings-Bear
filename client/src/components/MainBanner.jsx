@@ -47,7 +47,7 @@ const MainBanner = () => {
   };
 
   return (
-    <div className="relative overflow-hidden h-[400px] md:h-[450px] w-full max-w-[100vw]">
+    <div className="relative overflow-hidden h-[400px] md:h-[450px] w-full max-w-[100vw] mt-16">
       {/* Slides */}
       {slides.map((slide, index) => (
         <div key={index}>
