@@ -13,7 +13,6 @@ const BestSeller = () => {
                     <span className="relative z-10">
                         Best <span className="text-primary">Seller</span> Products
                     </span>
-                    {/* Removed underline */}
                 </h2>
                 <p className="text-gray-600 max-w-2xl mx-auto text-lg">
                     Discover our most loved products, handpicked just for you
