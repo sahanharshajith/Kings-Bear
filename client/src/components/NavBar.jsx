@@ -6,16 +6,23 @@ import nav_cart_icon from '../assets/nav_cart_icon.svg';
 import menu_icon from '../assets/menu_icon.svg';
 import { useAppContext } from '../context/AppContext.jsx';
 import profile_icon from '../assets/profile_icon.png';
+import { useEffect } from 'react';
 
 function NavBar() {
     const [open, setOpen] = React.useState(false);
-    const { user, setUser, setShowUserLogin, navigate } = useAppContext();
+    const { user, setUser, setShowUserLogin, navigate, searchQuery, setSearchQuery } = useAppContext();
 
     const logout = async () => {
         setUser(null);
         navigate('/');
         setShowUserLogin(false);
     };
+
+    useEffect(() => {
+        if (searchQuery.length > 0) {
+            navigate('/products');
+        }
+    }, [searchQuery]);
 
     const handleLoginClick = () => {
         setShowUserLogin(true);
@@ -58,6 +65,7 @@ function NavBar() {
                 {/* Search Bar */}
                 <div className="hidden lg:flex items-center text-sm gap-2 border border-gray-600 px-4 py-2 rounded-full bg-gray-700/50 backdrop-blur-sm">
                     <input 
+                        onChange={(e) => setSearchQuery(e.target.value)}
                         className="py-1 w-40 bg-transparent outline-none placeholder-gray-400 text-white" 
                         type="text" 
                         placeholder="Search products..." 
