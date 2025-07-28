@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const AboutUs = () => {
     return (
-        <div className="bg-gradient-to-br from-gray-50 to-white min-h-screen">
+        <div className="bg-gradient-to-br min-h-screen">
             {/* Hero Section */}
             <div className="relative text-gray-800 py-12">
                 <div className="relative max-w-7xl mx-auto px-6 text-center">
@@ -38,7 +38,7 @@ const AboutUs = () => {
                         </div>
                         <div className="flex flex-col sm:flex-row gap-4">
                             <Link 
-                                to="/products" 
+                                to="/products" onClick={() => scrollTo(0,0)}
                                 className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-primary hover:bg-primary/90 text-white rounded-full font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
                             >
                                 Explore Our Collection

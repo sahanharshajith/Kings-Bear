@@ -34,8 +34,9 @@ const BottomBanner = () => {
 
             <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Link 
-                  to="/products" 
+                  to="/products" onClick={() => scrollTo(0,0)}
                   className="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-primary/30"
+
                 >
                   SHOP OUR BEARS
                   <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -43,7 +44,7 @@ const BottomBanner = () => {
                   </svg>
                 </Link>
                 <Link 
-                  to="/products" 
+                  to="/products" onClick={() => scrollTo(0,0)}
                   className="inline-flex items-center justify-center border-2 border-primary text-primary hover:bg-primary/10 font-medium py-3 px-8 rounded-full transition-all duration-300"
                 >
                   VIEW COLLECTIONS
