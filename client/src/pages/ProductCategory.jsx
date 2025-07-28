@@ -36,7 +36,7 @@ const ProductCategory = () => {
                         </>
                     ) : (
                         <>
-                            <span className="text-primary">{category}</span> Bears
+                            <span className="text-primary">{category.charAt(0).toUpperCase() + category.slice(1)}</span>
                         </>
                     )}
                 </h1>
