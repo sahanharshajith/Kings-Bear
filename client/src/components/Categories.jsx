@@ -141,7 +141,7 @@ const Categories = () => {
                                 border: `1px solid ${lightenColor(category.bgColor, 20)}`
                             }}
                             onClick={() => {
-                                navigate(`/products/${category.category.toLowerCase()}`);
+                                navigate(`/products/category/${category.category.toLowerCase()}`);
                                 scrollTo(0, 0);
                             }}
                         >

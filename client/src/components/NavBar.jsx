@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../assets/kingsbearlogo.png';
 import search_icon from '../assets/search_icon.svg';
-import nav_cart_icon from '../assets/nav_cart_icon.svg';
 import menu_icon from '../assets/menu_icon.svg';
 import { useAppContext } from '../context/AppContext.jsx';
 import profile_icon from '../assets/profile_icon.png';
@@ -10,7 +9,7 @@ import { useEffect } from 'react';
 
 function NavBar() {
     const [open, setOpen] = React.useState(false);
-    const { user, setUser, setShowUserLogin, navigate, searchQuery, setSearchQuery } = useAppContext();
+        const { user, setUser, setShowUserLogin, searchQuery, setSearchQuery, getCartCount, navigate, favorites } = useAppContext();
 
     const logout = async () => {
         setUser(null);
@@ -73,13 +72,44 @@ function NavBar() {
                     <img src={search_icon} alt="search" className='w-5 h-5 opacity-80 hover:opacity-100 transition' />
                 </div>
 
+                {/* Favorites Icon */}
+                <div 
+                    onClick={() => navigate("/favorites")} 
+                    className="relative cursor-pointer p-2 hover:bg-gray-700/50 rounded-full transition"
+                >
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path 
+                            strokeLinecap="round" 
+                            strokeLinejoin="round" 
+                            strokeWidth="2" 
+                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" 
+                        />
+                    </svg>
+                    {favorites.length > 0 && (
+                        <span className="absolute -top-1 -right-1 text-xs text-white bg-primary w-5 h-5 rounded-full flex items-center justify-center font-medium">
+                            {favorites.length}
+                        </span>
+                    )}
+                </div>
+
                 {/* Cart Icon */}
                 <div 
                     onClick={() => navigate("/cart")} 
                     className="relative cursor-pointer p-2 hover:bg-gray-700/50 rounded-full transition"
                 >
-                    <img src={nav_cart_icon} alt="cart" className='w-6 h-6' />
-                    <span className="absolute -top-1 -right-1 text-xs text-white bg-primary w-5 h-5 rounded-full flex items-center justify-center font-medium">3</span>
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path 
+                            strokeLinecap="round" 
+                            strokeLinejoin="round" 
+                            strokeWidth="2" 
+                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" 
+                        />
+                    </svg>
+                    {getCartCount() > 0 && (
+                        <span className="absolute -top-1 -right-1 text-xs text-white bg-primary w-5 h-5 rounded-full flex items-center justify-center font-medium">
+                            {getCartCount()}
+                        </span>
+                    )}
                 </div>
 
                 {/* User Auth Section */}
@@ -151,6 +181,21 @@ function NavBar() {
                         className="w-full px-4 py-3 hover:bg-gray-700 rounded-md transition text-white hover:underline decoration-2 underline-offset-4"
                     >
                         All Products
+                    </NavLink>
+                    <NavLink 
+                        to='/favorites' 
+                        onClick={() => setOpen(false)} 
+                        className="w-full px-4 py-3 hover:bg-gray-700 rounded-md transition text-white hover:underline decoration-2 underline-offset-4 flex items-center gap-2"
+                    >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                        Favorites
+                        {favorites.length > 0 && (
+                            <span className="text-xs bg-red-500 text-white px-2 py-1 rounded-full">
+                                {favorites.length}
+                            </span>
+                        )}
                     </NavLink>
                     {user && (
                         <NavLink 

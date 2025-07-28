@@ -10,6 +10,10 @@ import { useAppContext } from './context/AppContext.jsx';
 import Login from './components/Login.jsx';
 import AllProducts from './pages/AllProducts.jsx';
 import ProductCategory from './pages/ProductCategory.jsx';
+import ProductDetails from './pages/ProductDetails.jsx';
+import Favorites from './pages/Favorites.jsx';
+import { Toaster } from 'react-hot-toast';
+
 
 const App = () => {
 
@@ -26,11 +30,43 @@ const App = () => {
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/products" element={<AllProducts />} />
-          <Route path="/products/:category" element={<ProductCategory />} />
+          <Route path="/products/category/:category" element={<ProductCategory />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/favorites" element={<Favorites />} />
           {/* Add other routes here as needed */}
         </Routes>
       </div>
       {!isSellerPath && <Footer />}
+      
+      {/* Toast Notifications */}
+      <Toaster 
+        position="top-right"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: '#fff',
+            color: '#333',
+            borderRadius: '12px',
+            border: '1px solid #e5e7eb',
+            padding: '16px',
+            fontSize: '14px',
+            fontWeight: '500',
+            boxShadow: '0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'
+          },
+          success: {
+            iconTheme: {
+              primary: '#10b981',
+              secondary: '#fff',
+            },
+          },
+          error: {
+            iconTheme: {
+              primary: '#ef4444',
+              secondary: '#fff',
+            },
+          },
+        }}
+      />
     </div>
   );
 };
