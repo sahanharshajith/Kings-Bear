@@ -9,6 +9,7 @@ import ContactUs from './pages/ContactUs';
 import { useAppContext } from './context/AppContext.jsx';
 import Login from './components/Login.jsx';
 import AllProducts from './pages/AllProducts.jsx';
+import ProductCategory from './pages/ProductCategory.jsx';
 
 const App = () => {
 
@@ -25,6 +26,8 @@ const App = () => {
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/products" element={<AllProducts />} />
+          <Route path="/products/:category" element={<ProductCategory />} />
+          {/* Add other routes here as needed */}
         </Routes>
       </div>
       {!isSellerPath && <Footer />}

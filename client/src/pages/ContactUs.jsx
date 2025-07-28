@@ -3,7 +3,7 @@ import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 
 const ContactUs = () => {
     return (
-        <div className="bg-gradient-to-br from-gray-50 to-white min-h-screen">
+        <div className="bg-gradient-to-br min-h-screen">
             {/* Hero Section */}
             <div className="text-gray-800 py-12">
                 <div className="max-w-7xl mx-auto px-6 text-center">
@@ -20,7 +20,7 @@ const ContactUs = () => {
             <div className="max-w-7xl mx-auto px-6 py-12">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
                     {/* Contact Form */}
-                    <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+                    <div className="bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
                         <div className="text-center mb-8">
                             <h2 className="text-3xl font-bold text-gray-800 font-serif mb-4">
                                 Send Us a <span className="text-primary">Message</span>
