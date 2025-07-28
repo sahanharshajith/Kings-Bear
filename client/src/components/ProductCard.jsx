@@ -4,13 +4,11 @@ import { useAppContext } from '../context/AppContext';
 
 const ProductCard = ({ product }) => {
     const [count, setCount] = React.useState(0);
-    const [isFavorite, setIsFavorite] = React.useState(false);
-    const {currency, addToCart, updateCartItem, removeCartItem, cartItems, navigate} = useAppContext();
+    const {currency, addToCart, updateCartItem, removeCartItem, cartItems, navigate, toggleFavorite, isFavorite} = useAppContext();
 
-    const toggleFavorite = (e) => {
+    const handleToggleFavorite = (e) => {
         e.stopPropagation();
-        setIsFavorite(!isFavorite);
-        // Here you can add logic to save to favorites in context/backend
+        toggleFavorite(product._id);
     };
 
     return product && (
@@ -28,16 +26,16 @@ const ProductCard = ({ product }) => {
                 
                 {/* Favorite Icon */}
                 <button
-                    onClick={toggleFavorite}
+                    onClick={handleToggleFavorite}
                     className="absolute top-3 right-3 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 group-hover:scale-110 hover:shadow-primary/70"
                 >
                     <svg 
                         className={`w-4 h-4 transition-colors duration-300 ${
-                            isFavorite 
+                            isFavorite(product._id) 
                                 ? 'text-primary fill-current' 
                                 : 'text-gray-400 hover:text-primary'
                         }`}
-                        fill={isFavorite ? 'currentColor' : 'none'}
+                        fill={isFavorite(product._id) ? 'currentColor' : 'none'}
                         stroke="currentColor" 
                         viewBox="0 0 24 24"
                     >

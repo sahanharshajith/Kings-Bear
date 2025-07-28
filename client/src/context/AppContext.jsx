@@ -18,6 +18,7 @@ export const AppProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
 
     const [cartItems, setCartItems] = useState({});
+    const [favorites, setFavorites] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
 
     const fetchProducts = async () => {
@@ -35,7 +36,14 @@ export const AppProvider = ({ children }) => {
             cartData[itemId] = 1;
         }
         setCartItems(cartData);
-        toast.success('Product added to cart successfully!');
+        
+        // Find product name for better toast message
+        const product = products.find(p => p._id === itemId);
+        const productName = product ? product.name : 'Product';
+        
+        toast.success(`${productName} added to cart!`, {
+            icon: '🛒',
+        });
     };
 
     const updateCartItem = (itemId, quantity) => {
@@ -59,6 +67,57 @@ export const AppProvider = ({ children }) => {
         toast.success('Product removed from cart successfully!');
     };
 
+    // Get total cart count
+    const getCartCount = () => {
+        let totalCount = 0;
+        for (const itemId in cartItems) {
+            totalCount += cartItems[itemId];
+        }
+        return totalCount;
+    };
+
+    // Add product to favorites
+    const addToFavorites = (itemId) => {
+        if (!favorites.includes(itemId)) {
+            const newFavorites = [...favorites, itemId];
+            setFavorites(newFavorites);
+            
+            const product = products.find(p => p._id === itemId);
+            const productName = product ? product.name : 'Product';
+            
+            toast.success(`${productName} added to favorites!`, {
+                icon: '💙',
+            });
+        }
+    };
+
+    // Remove product from favorites
+    const removeFromFavorites = (itemId) => {
+        const newFavorites = favorites.filter(id => id !== itemId);
+        setFavorites(newFavorites);
+        
+        const product = products.find(p => p._id === itemId);
+        const productName = product ? product.name : 'Product';
+        
+        toast.success(`${productName} removed from favorites!`, {
+            icon: '❤️',
+        });
+    };
+
+    // Toggle favorite status
+    const toggleFavorite = (itemId) => {
+        if (favorites.includes(itemId)) {
+            removeFromFavorites(itemId);
+        } else {
+            addToFavorites(itemId);
+        }
+    };
+
+    // Check if product is in favorites
+    const isFavorite = (itemId) => {
+        return favorites.includes(itemId);
+    };
+
     useEffect(() => {
         fetchProducts();
     }, []);
@@ -77,6 +136,12 @@ export const AppProvider = ({ children }) => {
         updateCartItem,
         removeCartItem,
         cartItems,
+        getCartCount,
+        favorites,
+        addToFavorites,
+        removeFromFavorites,
+        toggleFavorite,
+        isFavorite,
         searchQuery,
         setSearchQuery
     };
